@@ -68,12 +68,14 @@ public class Main {
         int one = 1;
         int two = 2;
         int three = 3;
-        if (one > two && one > three) {
+        if (one > two && one > three && one != two && one != three) {
             System.out.println("Самое большое число " + one);
-        } else if (two > one && two > three) {
+        } else if (two > one && two > three && two != one && two != three) {
             System.out.println("Самое большое число " + two);
-        } else {
+        } else if (three > one && three > two && three != one && three != two){
             System.out.println("Самое большое число " + three);
+        } else {
+            System.out.println("Ошибка");
         }
 
 
