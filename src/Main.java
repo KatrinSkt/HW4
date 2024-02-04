@@ -54,29 +54,38 @@ public class Main {
 
         int carriageCapacity = 102;
         int seatPlace = 60;
-        int occupiedSeatInTheCarriage = 55;
-        if (occupiedSeatInTheCarriage < carriageCapacity && occupiedSeatInTheCarriage < seatPlace) {
-            System.out.println("Есть сидячее место в вагоне");
-        } else if (occupiedSeatInTheCarriage < carriageCapacity && occupiedSeatInTheCarriage > seatPlace) {
-            System.out.println("Есть стоячее место в вагоне");
-        } else {
-            System.out.println("Вагон полностью забит");
-        }
+        int standPlace = carriageCapacity - seatPlace;
+        int occupiedSeatPlaces = 55;
+        int occupiedStandPlaces = 32;
+        int freeSeatPlaces = seatPlace - occupiedSeatPlaces;
+        int freeStandPlaces = standPlace - occupiedStandPlaces;
 
+        if (freeSeatPlaces <= 0 && freeStandPlaces <= 0) {
+            System.out.println("Вагон полностью забит");
+        } else {
+            if (freeSeatPlaces > 0) {
+                System.out.println("В вагоне есть сидячие места в количестве " + freeSeatPlaces + " мест");
+            }
+            if (freeStandPlaces > 0) {
+                System.out.println("В вагоне есть стоячие места в количестве " + freeStandPlaces + " мест");
+            }
+        }
         System.out.println("Задача 7");
 
         int one = 1;
         int two = 2;
         int three = 3;
-        if (one > two && one > three && one != two && one != three) {
-            System.out.println("Самое большое число " + one);
-        } else if (two > one && two > three && two != one && two != three) {
-            System.out.println("Самое большое число " + two);
-        } else if (three > one && three > two && three != one && three != two){
-            System.out.println("Самое большое число " + three);
+        int max;
+        if (one >= two ) {
+            max = one;
         } else {
-            System.out.println("Ошибка");
+            max = two;
         }
+        if (three >= max) {
+           max = three;
+        }
+        System.out.println("Максимальное из 3х чисел: " + max);
+
 
 
     }
